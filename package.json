@@ -24,7 +24,10 @@
   "engine": {
     "node": ">=6"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@parity/parity.js": "^0.3.88",
+    "pull-stream": "^3.5.0"
+  },
   "devDependencies": {
     "husky": "^0.13.1",
     "snazzy": "^6.0.0",
