@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "parity-pull-streams",
+  "version": "0.1.0",
+  "description": "Talk to Parity using pull streams.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --verbose | snazzy",
+    "prepush": "npm run lint"
+  },
+  "keywords": [
+    "parity",
+    "ethereum",
+    "streams",
+    "pull-stream"
+  ],
+  "author": "Ethcore Team <admin@ethcore.io>",
+  "maintainers": [
+    "Jannis R <mail@jannisr.de>"
+  ],
+  "license": "GPL-3.0",
+  "repository": "ethcore/parity-pull-streams",
+  "homepage": "https://github.com/ethcore/parity-pull-streams",
+  "engine": {
+    "node": ">=6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.13.1",
+    "snazzy": "^6.0.0",
+    "standard": "^8.6.0"
+  }
+}
