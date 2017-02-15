@@ -1,9 +1,11 @@
 'use strict'
 
-const currentBlock = require('./lib/current-block')
+const subscription = require('./lib/subscription')
 const blockByNr = require('./lib/block-by-nr')
+const coinbase = require('./lib/coinbase')
 
 module.exports = {
-  currentBlock,
-  blockByNr
+  currentBlock: subscription('eth_blockNumber'),
+  blockByNr,
+  coinbase
 }
