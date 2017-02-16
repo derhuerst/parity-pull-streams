@@ -57,7 +57,7 @@ const transactionCount = (api, account) =>
   api.eth.getTransactionCount(account)
   .then((count) => +count)
 
-module.exports = {
+const tools = {
   accounts: nullary(accounts),
   balance: unary(balance),
   blockByNr: unary(blockByNr),
@@ -76,3 +76,9 @@ module.exports = {
   syncing: nullary(syncing),
   transactionCount: unary(transactionCount)
 }
+
+const init = (api) => new Proxy(tools, {
+  get: (tools, key) => tools[key](api)
+})
+
+module.exports = Object.assign(init, tools)
