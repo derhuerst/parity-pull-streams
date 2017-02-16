@@ -1,6 +1,7 @@
 'use strict'
 
-const {Api} = require('@parity/parity.js')
+// const {Api} = require('@parity/parity.js')
+const {Api} = window.parity
 const pipe = require('pull-stream/pull')
 const zip = require('pull-zip')
 
