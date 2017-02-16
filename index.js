@@ -3,6 +3,7 @@
 const subscription = require('./lib/subscription')
 const nullary = require('./lib/nullary')
 const unary = require('./lib/unary')
+const nAry = require('./lib/n-ary')
 
 const accounts = (api) =>
   api.eth.accounts()
@@ -57,6 +58,23 @@ const transactionCount = (api, account) =>
   api.eth.getTransactionCount(account)
   .then((count) => +count)
 
+const txReceipt = (api, tx) =>
+  api.eth.getTransactionReceipt(tx)
+  .then((data) => ({
+    blockHash: data.blockHash,
+    blockNr: +data.blockNumber,
+    contract: data.contractAddress || null,
+    cumulativeGasUsed: +data.cumulativeGasUsed,
+    gasUsed: +data.gasUsed,
+    logs: data.logs,
+    root: data.root,
+    txHash: data.transactionHash,
+    txIndex: +data.transactionIndex
+  }))
+
+const txConfirmations = (api, receipt, currentBlock) =>
+  Promise.resolve(currentBlock - receipt.blockNr)
+
 const tools = {
   accounts: nullary(accounts),
   balance: unary(balance),
@@ -74,7 +92,9 @@ const tools = {
   protocolVersion: nullary(protocolVersion),
   registry: nullary(registry),
   syncing: nullary(syncing),
-  transactionCount: unary(transactionCount)
+  transactionCount: unary(transactionCount),
+  txConfirmations: nAry(txConfirmations),
+  txReceipt: unary(txReceipt)
 }
 
 const init = (api) => new Proxy(tools, {
