@@ -4,6 +4,8 @@
 const {Api} = window.parity
 const pipe = require('pull-stream/pull')
 const zip = require('pull-zip')
+const delay = require('pull-delay')
+const drain = require('pull-stream/sinks/drain')
 
 const api = new Api(new Api.Transport.Http('http://localhost:8545'))
 api.transport._connectTimeout = -1
@@ -23,5 +25,10 @@ module.exports = pipe(
     ),
     parity.currentBlock
   ),
-  parity.txConfirmations
+  parity.txConfirmations,
+  delay(1000),
+  drain(
+    (data) => console.log('data', data),
+    () => console.log('end!')
+  )
 )

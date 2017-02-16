@@ -5,8 +5,8 @@
   "description": "Play with parity-pull-streams.",
   "main": "index.js",
   "scripts": {
-    "build": "browserify app.js > bundle.js",
-    "start": "beefy app.js 9966 --live --open"
+    "build": "browserify index.js > bundle.js",
+    "start": "beefy index.js 9966 --live --open"
   },
   "license": "GPL-3.0",
   "repository": "ethcore/parity-pull-streams",
@@ -17,6 +17,7 @@
   "dependencies": {
     "beefy": "^2.1.8",
     "browserify": "^14.1.0",
+    "pull-delay": "^1.0.1",
     "pull-stream": "^3.5.0",
     "pull-zip": "^2.0.1"
   },
