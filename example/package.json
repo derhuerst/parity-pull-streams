@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "parity-pull-streams-playground",
+  "version": "0.1.0",
+  "description": "Play with parity-pull-streams.",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify app.js > bundle.js",
+    "start": "beefy app.js 9966 --live --open"
+  },
+  "license": "GPL-3.0",
+  "repository": "ethcore/parity-pull-streams",
+  "homepage": "https://github.com/ethcore/parity-pull-streams",
+  "engine": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "beefy": "^2.1.8",
+    "browserify": "^14.1.0",
+    "pull-stream": "^3.5.0",
+    "pull-zip": "^2.0.1"
+  },
+  "devDependencies": {}
+}
