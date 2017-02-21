@@ -1,5 +1,6 @@
 'use strict'
 
+require('isomorphic-fetch')
 const {Api} = require('@parity/parity.js')
 const pipe = require('pull-stream/pull')
 const zip = require('pull-zip')
@@ -17,7 +18,7 @@ const repeat = (val) => (end, cb) => {
   else cb(null, val)
 }
 
-module.exports = pipe(
+pipe(
   zip(
     pipe(
       repeat('0x47a447ee9656a74baa584da2a1f79403749ce480bf9790272a34c4864b4b1e94'),

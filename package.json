@@ -28,6 +28,9 @@
     "@parity/parity.js": "^0.3.91",
     "p-defer": "^1.0.0"
   },
+  "peerDependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
   "devDependencies": {
     "husky": "^0.13.1",
     "snazzy": "^6.0.0",
